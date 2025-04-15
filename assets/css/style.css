@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --violet: #5964E0;
+  --light-violet: #939BF4;
+  --very-dark-blue: #19202D;
+  --midnight: #121721;
+  --gray: #9DAEC2;
+  --light-gray: #F4F6F8;
+  --pure-white: #fff;
+  --dark-gray: #6E8098;
+}
+
+body[data-theme="light"] {
+  --bg-color: var(--light-gray);
+  --fg-color: var(--pure-white);
+  --text-color: var(--very-dark-blue);
+  --small-text-color: var(--dark-gray);
+  --icon-color: var(--dark-gray);
+  --error-color: var(--red)
+}
+
+body[data-theme="dark"] {
+  --bg-color: var(--midnight);
+  --fg-color: var(--very-dark-blue);
+  --text-color: var(--pure-white);
+  --small-text-color: var(--light-bluish);
+  --icon-color: var(--pure-white);
+}
+
+.dark-mode-image,
+.light-mode-image {
+  display: none;
+  position: relative;
+  z-index: -1;
+}
+
+
+body[data-theme="dark"] .dark-mode-image,
+body[data-theme="light"] .light-mode-image {
+  display: block;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--bg-image-mobile);
+  background-repeat: no-repeat;
+  background-color: var(--bg-color);
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+
+[data-theme="light"] {
+  --bg-color: var(--light-gray);
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--dark-navy);
+}
+
+
+.theme-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  i {
+    color: var(--pure-white);
+  }
+}
+
+#theme-btn {
+  display: none;
+}
+
+#theme-label {
+  width: 32px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 999px;
+  background-color: var(--pure-white);
+  display: inline-block;
+  position: relative;
+}
+
+#theme-label::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--violet);
+  border-radius: 50%;
+  position: absolute;
+  transition: transform .3s;
+}
+
+#theme-label:has(input:checked)::after {
+  transform: translateX(12px);
+}
+
+/* dark mode switch button kodu */
+
+.container .mod-container {
+
+
+  display: flex;
+
+
+  padding: 32px 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--bg-color);
+}
+
+.head-container {
+  height: 136px;
+  background: url("/assets/images/triangles.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  margin-right: 24px;
+  background-color: var(--fg-color);
+  justify-content: space-between;
+  height: 80px;
+  border-radius: 5px;
+  margin-top: -40px;
+  margin-bottom: 32px;
+}
+
+.search-container input {
+  background-color: var(--fg-color);
+  position: relative;
+  border: none;
+  margin-left: 24px;
+  width: 60%;
+  height: 40px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.icons-filter-search {
+  display: flex;
+}
+
+.icons-filter-search {
+  margin-right: 16px;
+  gap: 16px;
+}
+
+.search-icon {
+  background-color: #5964e0;
+  padding: 10px;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.filter-icon {
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--icon-color);
+}
+
+.cart-container {
+  display: grid;
+  padding-left: 24px;
+  padding-right: 24px;
+  grid-template-columns: 1fr;
+}
+
+.content-container {
+  background-color: var(--fg-color);
+  border-radius: 6px;
+  padding: 49px 9px 0px 32px;
+}
+
+.main-container {
+  margin-bottom: 25px;
+}
+
+.main-container img {
+  margin-left: 32px;
+  margin-bottom: -25px;
+}
+
+.oval {
+  width: 4px;
+  height: 4px;
+  background-color: #6E8098;
+  border-radius: 999px;
+}
+
+.info-content {
+  display: flex;
+  gap: 8px;
+
+  align-items: center;
+}
+
+.search-container-tablet {
+  display: none;
+}
+
+.info-content {
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-gray);
+  }
+}
+
+.title {
+
+  p {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.back-title {
+
+  p {
+    margin-bottom: 49px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+  }
+}
+
+.country {
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--violet);
+    padding-bottom: 36px;
+  }
+}
+
+@media(width > 768px) {
+
+  .main-container{
+    max-width: 340px;
+  }
+
+  .cart-container {
+    padding-left: 39px;
+    padding-right: 39px;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .head-container {
+    background-image: url("/assets/images/Triangle-tablet.png");
+    height: 160px;
+  }
+
+  .container .mod-container {
+    padding-top: 42px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .container .search-container {
+    display: none;
+  }
+
+  .icons-filter-search .search-icon {
+    background-color: transparent;
+    color: var(--violet);
+    padding: 0px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .content-container {
+    height: 100%;
+    width: 100%;
+  }
+
+
+  .icons-filter-search .filter-icon {
+    display: none;
+
+  }
+
+  .search-container-tablet {
+    display: block;
+    display: flex;
+    align-items: center;
+    margin-left: 39px;
+    margin-right: 39px;
+    background-color: var(--fg-color);
+    height: 80px;
+    border-radius: 5px;
+    margin-top: -40px;
+    margin-bottom: 32px;
+
+    input {
+      position: relative;
+      background-color: var(--fg-color);
+      border: none;
+      height: 20px;
+      width: 140px;
+    }
+
+  }
+
+  .section-first {
+    display: flex;
+    align-items: center;
+    width: 33%;
+  }
+
+  .search-container-tablet .bordered {
+    border-right: 1px solid #6E8098;
+    height: 80px;
+    justify-content: flex-end;
+    padding: 1px;
+  }
+
+  .section-second {
+    display: flex;
+    align-items: center;
+    width: 33%;
+
+  }
+
+  .search-container-tablet .search-icon {
+    padding-left: 24px;
+  }
+
+  .icons-filter-location .location {
+    padding-left: 24px;
+    font-size: 20px;
+    color: var(--violet);
+    display: flex;
+  }
+
+  .icons-filter-location {
+    display: flex;
+    gap: 10px;
+  }
+
+  input:focus {
+    outline: 0;
+  }
+
+  .checkbox-btn {
+    display: flex;
+
+    padding-left: 20px;
+    align-items: center;
+    height: 80px;
+    justify-content: space-around;
+
+    p {
+      color: var(--text-color);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    button {
+      color: var(--pure-white);
+      background-color: var(--violet);
+      border: none;
+      border-radius: 5px;
+      padding: 16px 14px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19.84px;
+    }
+  }
+
+  .checkbox-btn #cb {
+    width: 24px;
+    height: 24px;
+    border: none;
+
+  }
+
+  .search-container-tablet .first {
+    width: 33.33%;
+  }
+
+  .search-container-tablet .second {
+    width: 33.33%;
+  }
+
+  .search-container-tablet .third {
+    width: 33.33%;
+  }
+
+}
+
+@media(width > 950px) {
+  .cart-container{
+    grid-template-columns: repeat(3 , 1fr);
+  }
+  .main-container{
+    max-width: 380px;
+  }
+
+}
+
+@media(width > 1440px) {
+  .container .mod-container {
+    padding-top: 45px;
+    padding-left: 165px;
+    padding-right: 165px;
+  }
+
+  .main-container{
+    max-width: 620px;
+  }
+
+  .head-container {
+    background-image: url("/assets/images/triangle-desktop.png");
+    height: 161px;
+  }
+
+  .cart-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+
+
+  .search-container-tablet{
+    margin-left: 165px;
+    margin-right: 165px;
+  }
+}
+
+@media(width > 2400px) {
+
+  .cart-container{
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+}
