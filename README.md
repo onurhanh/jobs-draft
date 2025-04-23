@@ -8,7 +8,7 @@
 
 ## 🔍 Project Overview
 
-**DevJobs Web App** is a project we built together with **Gökdeniz Keleş** at **Acunmedya Akademi**. It dynamically fetches developer job listings from a `jobs.json` data file and lets users filter them by various criteria.
+It dynamically fetches developer job listings from a `jobs.json` data file and lets users filter them by various criteria.
 
 The app makes discovering jobs, accessing detailed information, and customizing the theme **easy**, **fast**, and **interactive**.
 
