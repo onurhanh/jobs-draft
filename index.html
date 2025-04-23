@@ -1,82 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/app.js" defer></script>
-    <script src="assets/js/theme.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/devjobs.css">
+  <script src="assets/js/devjobs.js" defer></script>
+  <title>DevJobs Web App</title>
 </head>
-
 <body>
-    <div class="container">
-        <div class="head-container">
-            <div class="mod-container">
-                <div class="header-container">
-                    <img src="assets/images/devjobs.png" alt="">
-                </div>
-                <div class="theme-btn-main-container">
-                    <div class="theme-btn-container">
-                        <i class="fa-regular fa-sun"></i>
-                        <label for="theme-btn" id="theme-label">
-                            <input type="checkbox" id="theme-btn">
-                        </label>
-                        <i class="fa-regular fa-moon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="search-container">
-            <input type="text" name="" id="" placeholder="Filter by title...">
-            <div class="icons-filter-search">
-                <i class="fa-solid fa-filter filter-icon"></i>
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            </div>
-
-        </div>
-        <div class="search-container-tablet">
-            <div class="first">
-                <div class="section-first">
-                    <div class="icons-filter-search">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                        <input type="text" name="" id="" placeholder="Filter by title...">
-                    </div>
-                </div>
-            </div>
-            <div class="bordered"></div>
-            <div class="second">
-                <div class="section-second">
-                    <div class="icons-filter-location">
-                        <i class="fa-solid fa-location-dot location"></i>
-                        <input type="text" name="" id="" placeholder="Filter by location...">
-                    </div>
-                </div>
-            </div>
-            <div class="bordered"></div>
-            <div class="third">
-                <div class="section-third">
-                    <div class="checkbox-btn">
-                        <input type="checkbox" name="" id="cb">
-                        <p>Full Time</p>
-                        <button>Search</button>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="cart-container">
-
-        </div>
-       
-
+  <div class="header">
+    <div class="header-top">
+      <img src="assets/logos/devjobs-logo.svg" alt="Devjobs Logo">
+      <!-- Theme Area Start -->
+      <div class="themeOptions">
+        <label>
+          <span><img src="assets/logos/sun-light-mode.svg" alt="Light Mode Icon"></span>
+          <input class="switch" type="checkbox" id="themeChange">
+          <span><img src="assets/logos/moon-light-mode.svg" alt="Dark Mode Icon"></span>
+        </label>
+      </div>
+      <!-- Theme Area End -->
     </div>
+    <!-- Search Area Start -->
+  </div>
+  <div class="container">
+      <div class="search-area-container"> 
+      <div class="searchInput">
+        <form class="searchForm" autocomplete="off">
+          <input type="text" name="filterWordDesktop" id="searchWordDesktop" placeholder="Filter by title, companies, expertise…" class="show-on-pc">
+          <input type="text" name="filterWordMobile" id="searchWordMobile" placeholder="Filter by title..." class="show-on-mobile show-on-tablet">
+          <input type="text" name="filterLocationDesktop" id="searchLocationDesktop" class="show-on-pc show-on-tablet" placeholder="Filter by location...">
+          <dialog id="mobilDialog">
+           <div class="dialog-inner">
+             <input type="text" name="filterLocationMobile" id="searchLocationMobile" class="show-on-mobile" placeholder="Filter by location...">
+             <hr>
+             <div class="dialog-checkbox">
+               <input type="checkbox" id="fullTimeCheckboxMobile" name="fullTimeOnly">
+               <span>Full Time Only</span>
+             </div>
+             <button class="searchBtn">Search</button>
+           </div>
+          </dialog>
+            
+            <!-- class ismi değişecek -->
+            <div class="flex">
+              <!-- class ismi değişecek -->
+              <div class="flex-alternative"> 
+                <input type="checkbox" id="fullTimeCheckbox" name="fullTimeOnly" class="show-on-pc show-on-tablet">
+                <span class="show-on-pc">Full Time Only</span>
+                <span class="show-on-tablet">Full Time</span>
+                <img src="assets/img/boiler-icon.svg" alt="" class= "show-on-mobile boiler">
+              </div>
+              <button class="searchBtn show-on-pc show-on-tablet">Search</button>
+              <button class="searchBtn show-on-mobile bg-color"><img src="assets/logos/white-search-mobile.svg" alt="search mobil"></button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <!-- Search Area End -->
+    <div class="content"></div>
+    <div class="details"></div>
+  </div>
 </body>
-
 </html>
